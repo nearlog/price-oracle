@@ -1,0 +1,23 @@
+[package]
+name = "price-oracle"
+version = "0.1.0"
+authors = ["Nearlog"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = "=4.0.0-pre.7"
+near-sys = "=0.1"
+approx = "0.5.1"
+
+
+[profile.release]
+codegen-units = 1
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
